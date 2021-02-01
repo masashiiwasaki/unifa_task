@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        no_image: をアップロードして下さい。
+    attributes:
+      picture:
+        title: タイトル
+        image: 画像
