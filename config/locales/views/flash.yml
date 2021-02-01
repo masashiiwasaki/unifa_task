@@ -1,0 +1,5 @@
+ja:
+  flash:
+    invalid_uid: ユーザーIDが未入力
+    invalid_pass: パスワードが未入力
+    invalid_uid_pass: ユーザーIDとパスワードが一致するユーザーが存在しない。

@@ -1,0 +1,12 @@
+#sessions
+  h2= t('.title')
+
+  = form_with(scope: :user, url: "/sessions") do |f|
+    div
+      p= t('.user_id')
+      = f.text_field :uid
+    div
+      p= t('.password')
+      = f.password_field :password
+    div
+      = f.submit t('.submit')
