@@ -1,0 +1,7 @@
+ja:
+  sessions:
+    new:
+      title: ログイン
+      user_id: ユーザーID
+      password: パスワード
+      submit: ログインする
