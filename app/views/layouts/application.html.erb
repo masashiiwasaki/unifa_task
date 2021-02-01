@@ -12,9 +12,20 @@
 
   <body>
     <% if flash.present? %>
-      <div class="success"><%= flash[:success]&.html_safe %></div>
-      <div class="errors"><%= flash[:error]&.html_safe %></div>
+      <div class="success"><%= flash[:success] %></div>
+      <div class="errors"><%= flash[:error] %></div>
     <% end %>
+
+    <% if !@errors&.empty? %>
+      <div class="errors">
+        <ul>
+          <% @errors&.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

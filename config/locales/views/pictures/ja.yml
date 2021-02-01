@@ -1,0 +1,8 @@
+ja:
+  pictures:
+    new:
+      title: 写真アップロード
+      picture_title: タイトル
+      image: 画像ファイル
+      submit: アップロード
+      cansel: キャンセル

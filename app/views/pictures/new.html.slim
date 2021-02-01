@@ -1,0 +1,13 @@
+#form
+  h2= t('.title')
+
+  = form_with(scope: :picture, url: "/pictures") do |f|
+    div
+      p= t('.picture_title')
+      = f.text_field :title
+    div
+      p= t('.image')
+      = f.file_field :image
+    div
+      = f.submit t('.submit')
+      = link_to t('.cansel'), "/"
