@@ -1,0 +1,13 @@
+#picture
+  h2= t('.title')
+
+  = link_to t('.upload'), "/pictures/new"
+
+  ul
+    - @pictures.each do |picture|
+      li
+        p.title
+          = picture.title
+        div
+          = image_tag(url_for(picture.image))
+

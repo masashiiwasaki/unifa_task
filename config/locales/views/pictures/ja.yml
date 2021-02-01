@@ -1,5 +1,8 @@
 ja:
   pictures:
+    index:
+      title: 写真一覧
+      upload: 写真アップロード
     new:
       title: 写真アップロード
       picture_title: タイトル
