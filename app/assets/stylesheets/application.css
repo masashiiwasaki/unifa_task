@@ -135,6 +135,11 @@ img{
   width: 100%;
 }
 
+#nav{
+  width: 80%;
+  margin: 30px auto;
+}
+
 #form{
   width: 250px;
   margin: 60px auto;
@@ -152,4 +157,8 @@ img{
 
 #form a{
   padding: 10px;
+}
+
+#form a.cansel{
+  padding: 10px 0;
 }
