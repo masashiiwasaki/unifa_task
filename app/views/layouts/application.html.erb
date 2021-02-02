@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render "shared/nav" %>
     <% if flash.present? %>
       <div class="success"><%= flash[:success] %></div>
       <div class="errors"><%= flash[:error] %></div>

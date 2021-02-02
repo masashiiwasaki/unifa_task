@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :require_login
+
   def index
     @pictures = current_user.pictures.created_order
   end
