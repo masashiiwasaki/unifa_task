@@ -2,6 +2,7 @@
   h2= t('.title')
 
   = link_to t('.upload'), "/pictures/new"
+  = link_to t('.authorize'), "/oauth/new"
 
   ul
     - @pictures.each do |picture|
