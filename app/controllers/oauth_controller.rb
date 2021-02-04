@@ -5,18 +5,22 @@ class OauthController < ApplicationController
   before_action :require_login
 
   def new
-    redirect_to generate_url
+    url = HttpService.generate_url url: AUTHORIZE_URL,
+      params: authorise_url_params
+    redirect_to url
   end
 
   def callback
-    session[:access_token] = access_token_request
+    access_token = HttpService.access_token_request url: TOKEN_URL,
+      params: access_token_params
+    session[:access_token] = access_token
 
     redirect_to "/"
   end
 
   private
 
-  def authorise_url_param
+  def authorise_url_params
     {
       client_id: ENV["CLIENT_ID"],
       response_type: "code",
@@ -32,20 +36,5 @@ class OauthController < ApplicationController
       grant_type: 'authorization_code',
       code: params['code']
     }
-  end
-
-  def generate_url
-    uri = URI.parse(AUTHORIZE_URL)
-    uri.query = URI.encode_www_form(authorise_url_param)
-
-    uri.to_s
-  end
-
-  def access_token_request
-    uri = URI.parse(TOKEN_URL)
-    res = Net::HTTP.post_form(uri, access_token_params)
-    results = JSON.parse(res.body.to_s)
-
-    results["access_token"]
   end
 end
