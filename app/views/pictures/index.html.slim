@@ -11,4 +11,7 @@
           = picture.title
         div
           = image_tag(url_for(picture.image))
+        div
+          = link_to t('.tweet'), "/tweets?picture_id=#{picture.id}",
+            method: :post
 

@@ -4,6 +4,7 @@ ja:
       title: 写真一覧
       upload: 写真アップロード
       authorize: MyTweetAppと連携
+      tweet: ツイートする
     new:
       title: 写真アップロード
       picture_title: タイトル
