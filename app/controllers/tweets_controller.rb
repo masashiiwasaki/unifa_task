@@ -8,8 +8,8 @@ class TweetsController < ApplicationController
     access_token = session[:access_token]
     params = tweet_params picture
 
-    response = HttpService.access_token_request url: TWEET_URL,
-      params: params
+    response = HttpService.post url: TWEET_URL, params: params,
+      access_token: access_token
 
     if response
       flash.now[:success] = t('flash.upload_tweet')

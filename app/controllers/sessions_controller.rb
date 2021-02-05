@@ -1,16 +1,17 @@
 class SessionsController < ApplicationController
-  before_action :presence_check, only: [:create]
-  before_action :set_user, only: [:create]
-
   def new
   end
 
   def create
-    if @user.authenticate(session_params[:password])
+    @login_user = LoginUser.new(uid: session_params[:uid],
+      password: session_params[:password])
+
+    if @login_user.save
+      @user = User.find_by(uid: session_params[:uid])
       session[:user_id] = @user.id
-      render 'pictures/new'
+      redirect_to '/pictures/new'
     else
-      flash.now[:error] = t('flash.invalid_uid_pass')
+      @errors = @login_user.errors.full_messages
       render 'new'
     end
   end
@@ -23,30 +24,6 @@ class SessionsController < ApplicationController
   end
 
   private
-
-  def presence_check
-    return unless session_params[:uid].blank? ||
-      session_params[:password].blank?
-
-    msg = []
-    if session_params[:uid].blank?
-      msg << t('flash.invalid_uid')
-    end
-
-    if session_params[:password].blank?
-      msg << t('flash.invalid_pass')
-    end
-
-    flash.now[:error] = msg.join("<br>")
-    render action: 'new'
-  end
-
-  def set_user
-    @user = User.find_by!(uid: session_params[:uid])
-  rescue
-    flash.now[:error] = t('flash.invalid_uid_pass')
-    render action: 'new'
-  end
 
   def session_params
     params.require(:user).permit(:uid, :password)

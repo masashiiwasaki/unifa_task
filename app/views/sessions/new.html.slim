@@ -1,7 +1,7 @@
 #form
   h2= t('.title')
 
-  = form_with(scope: :user, url: "/sessions") do |f|
+  = form_with(scope: :user, url: "/sessions", local: true) do |f|
     div
       p= t('.user_id')
       = f.text_field :uid
