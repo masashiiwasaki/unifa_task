@@ -5,7 +5,7 @@ class Picture < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validate :image_presence
 
-  scope :created_order, (-> { order(created_at: :asc) })
+  scope :created_order, (-> { order(created_at: :desc) })
 
   private
 
