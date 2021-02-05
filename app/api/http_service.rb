@@ -15,13 +15,13 @@ class HttpService
       results["access_token"]
     end
 
-    def post url:, params:
+    def post url:, params:, access_token:
       uri = URI.parse(url)
       request = Net::HTTP::Post.new(uri)
       request.body = params.to_json
       request.content_type = 'application/json'
       request['Accept'] = 'application/json'
-      request['Authorization'] = "Bearer #{session[:access_token]}"
+      request['Authorization'] = "Bearer #{access_token}"
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
         http.request(request)

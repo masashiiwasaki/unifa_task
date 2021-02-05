@@ -17,15 +17,13 @@
       <div class="errors"><%= flash[:error] %></div>
     <% end %>
 
-    <% if !@errors&.empty? %>
-      <div class="errors">
-        <ul>
-          <% @errors&.each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <div class = <%= error_class @errors %>>
+      <ul>
+        <% @errors&.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
 
     <%= yield %>
   </body>

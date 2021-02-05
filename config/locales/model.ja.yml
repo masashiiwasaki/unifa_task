@@ -7,3 +7,14 @@ ja:
       picture:
         title: タイトル
         image: 画像
+  activemodel:
+    attributes:
+      login_user:
+        uid: ユーザーID
+        password: パスワード
+    errors:
+      models:
+        login_user:
+          uid: ユーザーID
+          password: パスワード
+          no_match: が一致するユーザーが存在しない
