@@ -10,7 +10,6 @@ class HttpService
     def access_token_request url:, params:
       uri = URI.parse(url)
       res = Net::HTTP.post_form(uri, params)
-      byebug
       results = JSON.parse(res.body.to_s)
 
       results["access_token"]
