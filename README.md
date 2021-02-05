@@ -1,24 +1,31 @@
-# README
+# 起動手順書
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- 環境の構築
 
-Things you may want to cover:
+```
+bundle install
+rake db:create
+rake db:migrate
+rails s
+```
 
-* Ruby version
+- テストログインユーザー作成
 
-* System dependencies
+下記のコマンドを打つことで
+ログインID: test_user
+パスワード: 12345
+でログインすることが出来ます。
 
-* Configuration
+```
+rake test_user_create:user
+```
 
-* Database creation
+- .envファイルを作成
 
-* Database initialization
+ルートディレクトリに「.env」というファイルを作成してください。
+作成した.envファイルに環境変数を記述してください。
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+CLIENT_ID = "XXXX"
+CLIENT_SECRET = "XXXX"
+```
